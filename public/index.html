@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="app1()">payment</button>
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script>
+  // var firebaseConfig = {
+  //   apiKey: "AIzaSyACjH4Cu-8BkRRQkePP4_2oR2KsvyphCiM",
+  //   authDomain: "paytm-55363.firebaseapp.com",
+  //   databaseURL: "https://paytm-55363.firebaseio.com",
+  //   projectId: "paytm-55363",
+  //   storageBucket: "paytm-55363.appspot.com",
+  //   messagingSenderId: "410774333124",
+  //   appId: "1:410774333124:web:b7e155921a7aa3cd2f8b91",
+  //   measurementId: "G-D9R7RHSK61"
+  // };
+  // // Initialize Firebase
+  // firebase.initializeApp(firebaseConfig); 
+
+  function app1(e){
+     e.preventDefault();
+     let app = firebase.functions().httpsCallable('app');
+
+     let allpromise = Promise.all([
+       app()
+     ]).then(e =>{
+       console.log(e);
+     })
+  }
+</script>
+
+</html>
